@@ -1,0 +1,25 @@
+{
+  "name": "validation_api_prod",
+  "version": "1.0.0",
+  "description": "",
+  "license": "MIT",
+  "author": "Alfred Melson",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlfredMelson/validation_api_prod.git"
+  },
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "aws-sdk": "2.1120.0",
+    "@trpc/server": "9.22.0",
+    "cors": "2.8.5",
+    "dotenv": "16.0.0",
+    "express": "next",
+    "express-validator": "6.14.0",
+    "uuid": "8.3.2",
+    "zod": "3.14.4"
+  }
+}
