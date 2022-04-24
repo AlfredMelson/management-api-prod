@@ -32,6 +32,7 @@ const trpcExpress = __importStar(require("@trpc/server/adapters/express"));
 const cors_1 = __importDefault(require("cors"));
 const middleware_1 = require("./middleware");
 const user_1 = require("./router/user");
+const config_1 = require("./config/config");
 exports.appRouter = (0, middleware_1.createRouter)().merge('user.', user_1.userRouter);
 const app = (0, express_1.default)();
 app.use((0, cors_1.default)());
@@ -39,8 +40,8 @@ app.use('/trpc', trpcExpress.createExpressMiddleware({
     router: exports.appRouter,
     createContext: () => null
 }));
-app.get('/', (_req, res) => res.send('testing 123'));
-const port = process.env.PORT || 8080;
-app.listen(port, () => {
-    console.log(`api-server listening at http://localhost:${port}`);
+app.get('/', (_req, res) => res.send('management api testing 1.2.3.'));
+const server = app.listen(config_1.config.server.port, () => {
+    console.log('Express server has been started on port ', config_1.config.server.port);
 });
+exports.default = server;
